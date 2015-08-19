@@ -1,8 +1,6 @@
 import Exceptions.InvalidActionException;
 import Exceptions.InvalidInputException;
 
-import java.util.ArrayList;
-import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -14,36 +12,37 @@ public class Game {
     private boolean inProgress = false;
 
     public void start() {
-        readBoardSetting();
-        try {
+        boolean result = false;
+        try{
+            readBoardSetting();
             setupBoard(size, numberOfMines);
-        } catch (InvalidInputException e) {
+            inProgress = true;
+            while(inProgress){
+                board.printBoard();
+                String[] actions = selectField();
+                performAction(actions);
+                result = validateResult(actions);
+
+            }
+            if(result){
+                System.out.println("Your win!");
+            } else{
+                System.out.println("You lose!");
+            }
+        }catch(InvalidInputException e){
+            System.out.println("Please input valid values.");
+        }
+        catch (InvalidActionException e) {
             e.printStackTrace();
         }
-        inProgress = true;
-        while(inProgress){
-            board.printBoard();
-            try {
-                inProgress = selectField();
-                if (inProgress) {
-                    if (winGame()) {
-                        System.out.println("You Win");
-                        inProgress = false;
-                    }
-                } else {
-                    //LOSE
-                    System.out.println("You Lose");
-                }
-            } catch (InvalidActionException e) {
-                e.printStackTrace();
-            }
-        }
+
         //END GAME
 
     }
 
+
     private boolean winGame() {
-        return board.HasAllDigged();
+        return board.hasAllDigged();
     }
 
     private void readBoardSetting(){
@@ -57,23 +56,43 @@ public class Game {
 
     private void setupBoard(int size, int numberOfMines) throws InvalidInputException {
         Cells cells = new Cells(new CellGenerator(size, numberOfMines).generatedCells());
-        board = new Board(cells);
+        board = new Board(cells, numberOfMines);
     }
 
-    private boolean selectField() throws InvalidActionException {
+    private String[] selectField(){
         System.out.println("Please select field [ x, y, Action]");
         Scanner in = new Scanner(System.in);
-        String input = in.nextLine();
-        String[] inputs = input.split(" ");
-        int positionX = Integer.parseInt(inputs[0]);
-        int positionY = Integer.parseInt(inputs[1]);
-        String actionString = inputs[2];
+        return in.nextLine().split(" ");
+    }
+
+    private boolean performAction(String[] actions) throws InvalidActionException {
         //TODO: validation
+
+        int positionX = Integer.parseInt(actions[0]);
+        int positionY = Integer.parseInt(actions[1]);
+        String actionString = actions[2];
         ActionFactory actionFactory = new ActionFactory();
         Action action = actionFactory.actionFor(actionString);
         return action.act(board.cellAt(positionX, positionY));
         //TODO: HOW TO TEST THIS
     }
+
+    private boolean validateResult(String[] actions) {
+        if(!actions[2].equals("D")) {
+            return true;
+        }
+        if(board.cellAt(Integer.parseInt(actions[0]), Integer.parseInt(actions[1])).hasMine()){
+            inProgress = false;
+            return false;
+        }
+        if(board.hasAllDigged()){
+            inProgress = false;
+            return true;
+        }
+        return true;
+
+    }
+
 
 
 }

@@ -7,6 +7,15 @@ public class Cell {
     private boolean isDigged;
     private boolean hasMine;
     private boolean isFlag;
+
+    public void setSurroundMines(int surroundMines) {
+        this.surroundMines = surroundMines;
+    }
+
+    public int getSurroundMines() {
+        return surroundMines;
+    }
+
     private int surroundMines;
 
 

@@ -20,31 +20,17 @@ public class CellGenerator {
     }
 
     public Cell[][] generatedCells(){
-
-        int[][] boardMap = populateBoardMap();
-
         Cell[][] cells = new Cell[size][size];
         for(int i = 0; i < size; i++){
             for(int j = 0; j < size; j++){
-                cells[i][j] = new Cell(boardMap[i][j]==1, surroundMines(i, j));
+                cells[i][j] = new Cell(false, 0);
             }
         }
-        return cells;
+
+        return setMines(cells);
     }
 
-    private int surroundMines(int positionX, int positionY) {
-        int numberOfMineSurround = 0;
-        for (int i = -1; i <= 1; i++)
-            for (int j = -1; j <= 1; j++)
-                if ((positionX + i >=0 && positionX + i <size) &&
-                        (positionY + j >=0) && (positionY + j < size)
-                        && (i !=0 && j!=0) && cellsValue[i + positionX][j + positionY] == 1){
-                    numberOfMineSurround++;
-                }
-        return numberOfMineSurround;
-    }
-
-    private int[][] populateBoardMap(){
+    private Cell[][] setMines(Cell[][] cells){
         ArrayList<Integer> usedNumber = new ArrayList<Integer>();
         Random rand = new Random();
         for (int i = 0; i < numberOfMines; i++){
@@ -52,12 +38,30 @@ public class CellGenerator {
             while (usedNumber.contains(randomNum)){
                 randomNum = rand.nextInt(size * size);
             }
+            System.out.println("Mine position:"+randomNum);
             usedNumber.add(randomNum);
             int positionX = randomNum / size;
             int positionY = randomNum % size;
-            cellsValue[positionX][positionY] = 1;
+            Cell currentCell = cells[positionX][positionY];
+            currentCell.setHasMine(true);
+            cells = setSurroundingValue(cells, positionX, positionY);
         }
-        return cellsValue;
+        return cells;
+    }
+
+    private Cell[][] setSurroundingValue(Cell[][] cells, int currentX, int currentY) {
+        for(int i = currentX - 1; i <=currentX + 1; i++ ){
+            for(int j = currentY - 1; j <= currentY + 1; j++){
+                if(validForSurroundingValue(i, j, currentX, currentY)){
+                    cells[i][j].setSurroundMines(cells[i][j].getSurroundMines() + 1);
+                }
+            }
+        }
+        return cells;
+    }
+
+    private boolean validForSurroundingValue(int i, int j, int positionX, int positionY){
+        return i >= 0 && i < size && j >= 0 && j < size && !(i == positionX && j == positionY);
     }
 
 }

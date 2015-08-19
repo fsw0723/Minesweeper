@@ -1,6 +1,4 @@
-import java.util.Dictionary;
 import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by sfang on 8/19/15.

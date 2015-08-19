@@ -1,7 +1,11 @@
 -------------------------------------------------------------------------------
 Test set: CellTest
 -------------------------------------------------------------------------------
-Tests run: 6, Failures: 6, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec <<< FAILURE!
+Tests run: 6, Failures: 6, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec <<< FAILURE!
+CellTest.testCannotDigWhenAlreadyDig()  Time elapsed: 0 sec  <<< FAILURE!
+Exceptions.InvalidActionException
+	at Cell.dig(Cell.java:54)
+	at CellTest.testCannotDigWhenAlreadyDig(CellTest.java:47)
 CellTest.testPrintHiddenCell()  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.NoClassDefFoundError: org/testng/Assert
 	at CellTest.testPrintHiddenCell(CellTest.java:12)
@@ -20,14 +24,10 @@ java.lang.NoClassDefFoundError: org/testng/Assert
 CellTest.testPrintCellWithMineSurround()  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.NoClassDefFoundError: org/testng/Assert
 	at CellTest.testPrintCellWithMineSurround(CellTest.java:26)
-CellTest.testPrintCellWithoutMineSurround()  Time elapsed: 0.002 sec  <<< FAILURE!
+CellTest.testPrintCellWithoutMineSurround()  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.NoClassDefFoundError: org/testng/Assert
 	at CellTest.testPrintCellWithoutMineSurround(CellTest.java:33)
 CellTest.testCannotDigWhenHasFlag()  Time elapsed: 0.001 sec  <<< FAILURE!
 Exceptions.InvalidActionException
-	at Cell.dig(Cell.java:45)
+	at Cell.dig(Cell.java:54)
 	at CellTest.testCannotDigWhenHasFlag(CellTest.java:40)
-CellTest.testCannotDigWhenAlreadyDig()  Time elapsed: 0 sec  <<< FAILURE!
-Exceptions.InvalidActionException
-	at Cell.dig(Cell.java:45)
-	at CellTest.testCannotDigWhenAlreadyDig(CellTest.java:47)

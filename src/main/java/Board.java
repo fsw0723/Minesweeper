@@ -6,27 +6,11 @@ import Exceptions.InvalidInputException;
 public class Board {
     private int size;
     private Cells cells;
-
-    public void setCells(Cells cells) {
-        this.cells = cells;
-    }
-
-    public Board(Cells cells) {
-        this.cells = cells;
-        this.size = cells.getSize();
-    }
-
     private int numberOfMines;
 
-    public int getSize() {
-        return size;
-    }
-
-    public int getNumberOfMines() {
-        return numberOfMines;
-    }
-
-    public void setNumberOfMines(int numberOfMines) {
+    public Board(Cells cells, int numberOfMines) {
+        this.cells = cells;
+        this.size = cells.getSize();
         this.numberOfMines = numberOfMines;
     }
 
@@ -40,11 +24,6 @@ public class Board {
         }
     }
 
-    public void init() {
-        Cell[][] cells = new Cell[size][size];
-
-    }
-
     public Cell cellAt(int positionX, int positionY) {
         return cells.cellAt(positionX, positionY);
     }
@@ -53,7 +32,7 @@ public class Board {
         return cells.numberOfDigCell();
     }
 
-    public boolean HasAllDigged(){
+    public boolean hasAllDigged(){
         return numberOfDigCell() == size * size - numberOfMines;
     }
 }

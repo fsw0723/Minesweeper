@@ -1,0 +1,33 @@
+-------------------------------------------------------------------------------
+Test set: CellTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 6, Errors: 0, Skipped: 0, Time elapsed: 0.004 sec <<< FAILURE!
+CellTest.testPrintHiddenCell()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NoClassDefFoundError: org/testng/Assert
+	at CellTest.testPrintHiddenCell(CellTest.java:12)
+Caused by: java.lang.ClassNotFoundException: org.testng.Assert
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:372)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:361)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:360)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:308)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	... 19 more
+CellTest.testPrintFlagCell()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NoClassDefFoundError: org/testng/Assert
+	at CellTest.testPrintFlagCell(CellTest.java:19)
+CellTest.testPrintCellWithMineSurround()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NoClassDefFoundError: org/testng/Assert
+	at CellTest.testPrintCellWithMineSurround(CellTest.java:26)
+CellTest.testPrintCellWithoutMineSurround()  Time elapsed: 0.002 sec  <<< FAILURE!
+java.lang.NoClassDefFoundError: org/testng/Assert
+	at CellTest.testPrintCellWithoutMineSurround(CellTest.java:33)
+CellTest.testCannotDigWhenHasFlag()  Time elapsed: 0.001 sec  <<< FAILURE!
+Exceptions.InvalidActionException
+	at Cell.dig(Cell.java:45)
+	at CellTest.testCannotDigWhenHasFlag(CellTest.java:40)
+CellTest.testCannotDigWhenAlreadyDig()  Time elapsed: 0 sec  <<< FAILURE!
+Exceptions.InvalidActionException
+	at Cell.dig(Cell.java:45)
+	at CellTest.testCannotDigWhenAlreadyDig(CellTest.java:47)

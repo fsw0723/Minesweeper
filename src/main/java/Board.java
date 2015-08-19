@@ -44,4 +44,16 @@ public class Board {
         Cell[][] cells = new Cell[size][size];
 
     }
+
+    public Cell cellAt(int positionX, int positionY) {
+        return cells.cellAt(positionX, positionY);
+    }
+
+    public int numberOfDigCell() {
+        return cells.numberOfDigCell();
+    }
+
+    public boolean HasAllDigged(){
+        return numberOfDigCell() == size * size - numberOfMines;
+    }
 }

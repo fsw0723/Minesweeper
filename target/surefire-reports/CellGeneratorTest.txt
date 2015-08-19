@@ -1,0 +1,19 @@
+-------------------------------------------------------------------------------
+Test set: CellGeneratorTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec <<< FAILURE!
+CellGeneratorTest.testGeneratedCellsReturnsCorrectNumberOfCells()  Time elapsed: 0.001 sec  <<< FAILURE!
+java.lang.NoClassDefFoundError: org/testng/Assert
+	at CellGeneratorTest.testGeneratedCellsReturnsCorrectNumberOfCells(CellGeneratorTest.java:18)
+Caused by: java.lang.ClassNotFoundException: org.testng.Assert
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:372)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:361)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:360)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:308)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	... 19 more
+CellGeneratorTest.testGeneratedCellsReturnsCorrectNumberOfMines()  Time elapsed: 0 sec  <<< FAILURE!
+java.lang.NoClassDefFoundError: org/testng/Assert
+	at CellGeneratorTest.testGeneratedCellsReturnsCorrectNumberOfMines(CellGeneratorTest.java:31)

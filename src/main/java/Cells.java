@@ -17,7 +17,7 @@ public class Cells {
     public void generateCells(){
         for(int i = 0; i < size; i++){
             for(int j = 0; j < size; j++){
-                cells[i][j] = new Cell(false, false);
+                cells[i][j] = new Cell(false, 0);
             }
         }
         //set mines
@@ -35,5 +35,25 @@ public class Cells {
             }
         }
         return display;
+    }
+
+    public Cell cellAt(int positionX, int positionY) {
+        return cells[positionX][positionY];
+    }
+
+    public int numberOfDigCell() {
+        int count = 0;
+        for(int row = 0; row < size; row++){
+            count = getCount(count, cells[row]);
+        }
+        return count;
+    }
+
+    private int getCount(int count, Cell[] cell) {
+        for(int j = 0; j < size; j++){
+            if (cell[j].isDigged())
+                count ++;
+        }
+        return count;
     }
 }

@@ -4,14 +4,12 @@ import Exceptions.InvalidInputException;
  * Created by sfang on 8/19/15.
  */
 public class Board {
-    private int size;
     private Cells cells;
-    private int numberOfMines;
+    private int size;
 
-    public Board(Cells cells, int numberOfMines) {
+    public Board(Cells cells) {
         this.cells = cells;
         this.size = cells.getSize();
-        this.numberOfMines = numberOfMines;
     }
 
     public void printBoard(){
@@ -28,11 +26,11 @@ public class Board {
         return cells.cellAt(positionX, positionY);
     }
 
-    public int numberOfDigCell() {
-        return cells.numberOfDigCell();
+    public boolean hasAllDigged(){
+        return cells.hasAllDigged();
     }
 
-    public boolean hasAllDigged(){
-        return numberOfDigCell() == size * size - numberOfMines;
+    public boolean validatePosition(int positionX, int positionY) {
+        return positionX >= size || positionY >= size || positionX < 0 || positionY < 0;
     }
 }

@@ -45,24 +45,27 @@ public class Cell {
         return ".";
     }
 
-    public boolean dig() throws InvalidActionException {
+    public void dig() throws InvalidActionException {
         if (isFlag || isDigged)
             throw new InvalidActionException();
         isDigged = true;
-        return hasMine;
     }
 
-    public boolean flag() {
+    public void flag() {
         isFlag = true;
-        return false;
     }
 
-    public boolean clear() {
+    public void clear() {
         isFlag = false;
-        return true;
     }
 
     public boolean isDigged() {
         return isDigged;
+    }
+
+    public boolean needDig() {
+        if (hasMine || isDigged)
+            return false;
+        return true;
     }
 }

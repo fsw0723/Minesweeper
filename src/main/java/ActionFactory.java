@@ -16,4 +16,8 @@ public class ActionFactory {
     public Action actionFor(String action){
         return actions.get(action);
     }
+
+    public boolean validateAction(String actionString) {
+        return actionString.equals(Constants.DIG) || actionString.equals(Constants.FLAG) || actionString.equals(Constants.CLEAR);
+    }
 }

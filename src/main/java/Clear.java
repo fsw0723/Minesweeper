@@ -3,7 +3,7 @@
  */
 public class Clear implements Action {
 
-    public boolean act(Cell cell) {
-        return cell.clear();
+    public void act(Cell cell) {
+        cell.clear();
     }
 }

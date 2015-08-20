@@ -1,27 +1,18 @@
-import Exceptions.InvalidInputException;
-
-/**
- * Created by sfang on 8/19/15.
- */
 public class Cells {
     private Cell[][] cells;
-    private int size;
-
 
     public Cells(Cell[][] cells){
         this.cells = cells;
-        this.size = cells[0].length;
-
     }
 
     public int getSize() {
-        return size;
+        return cells[0].length;
     }
 
     public String[][] displayValue() {
-        String[][] display = new String[size][size];
-        for(int i = 0;i < size; i++){
-            for(int j = 0;j < size; j++){
+        String[][] display = new String[getSize()][getSize()];
+        for(int i = 0;i < getSize(); i++){
+            for(int j = 0;j < getSize(); j++){
                 display[i][j] = cells[i][j].displayValue();
             }
         }
@@ -32,19 +23,19 @@ public class Cells {
         return cells[positionX][positionY];
     }
 
-    public int numberOfDigCell() {
-        int count = 0;
-        for(int row = 0; row < size; row++){
-            count = getCount(count, cells[row]);
+    private boolean needDig(Cell[] cell) {
+        for(int j = 0; j < getSize(); j++){
+            if (cell[j].needDig())
+                return true;
         }
-        return count;
+        return false;
     }
 
-    private int getCount(int count, Cell[] cell) {
-        for(int j = 0; j < size; j++){
-            if (cell[j].isDigged())
-                count ++;
+    public boolean hasAllDigged() {
+        for(int row = 0; row < getSize(); row++){
+            if (needDig(cells[row]))
+                return false;
         }
-        return count;
+        return true;
     }
 }

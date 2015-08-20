@@ -46,4 +46,23 @@ public class CellTest {
         cell.dig();
         cell.dig();
     }
+
+    @Test
+    public void testNeedDigOnHiddenCell() throws InvalidActionException {
+        Cell cell = new Cell(false, 0);
+        Assert.assertTrue(cell.needDig());
+    }
+
+    @Test
+    public void testNeedDigOnMineCell() throws InvalidActionException {
+        Cell cell = new Cell(true, 0);
+        Assert.assertFalse(cell.needDig());
+    }
+
+    @Test
+    public void testNeedDigOnDiggedCell() throws InvalidActionException {
+        Cell cell = new Cell(false, 0);
+        cell.dig();
+        Assert.assertFalse(cell.needDig());
+    }
 }

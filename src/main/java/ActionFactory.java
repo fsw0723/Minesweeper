@@ -8,9 +8,9 @@ public class ActionFactory {
 
     public ActionFactory(){
         actions = new HashMap<String, Action>();
-        actions.put("D", new Dig());
-        actions.put("F", new Flag());
-        actions.put("C", new Clear());
+        actions.put(Constants.DIG, new Dig());
+        actions.put(Constants.FLAG, new Flag());
+        actions.put(Constants.CLEAR, new Clear());
     }
 
     public Action actionFor(String action){

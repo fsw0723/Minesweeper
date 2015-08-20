@@ -29,10 +29,6 @@ public class Cell {
         return hasMine;
     }
 
-    public void setIsDigged(boolean isDigged) {
-        this.isDigged = isDigged;
-    }
-
     public void setHasMine(boolean hasMine) {
         this.hasMine = hasMine;
     }

@@ -1,8 +1,7 @@
+package src;
+
 import java.util.Scanner;
 
-/**
- * Created by sfang on 8/20/15.
- */
 public class GameReader {
     public String readBoardSetting(){
         System.out.println("Board setup [size, number of mines]: ");

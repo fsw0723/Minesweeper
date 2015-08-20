@@ -1,7 +1,9 @@
-import Exceptions.InvalidActionException;
 import Exceptions.InvalidInputException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import src.Cell;
+import src.Cells;
+
 import static org.mockito.Mockito.*;
 
 public class CellsTest {

@@ -1,8 +1,7 @@
 import Exceptions.InvalidActionException;
-import Exceptions.InvalidInputException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import static org.mockito.Mockito.*;
+import src.Cell;
 
 public class CellTest {
     int SIZE = 5;

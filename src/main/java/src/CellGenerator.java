@@ -1,9 +1,8 @@
+package src;
+
 import java.util.ArrayList;
 import java.util.Random;
 
-/**
- * Created by sfang on 8/19/15.
- */
 public class CellGenerator {
     private int size, numberOfMines;
     private int[][] cellsValue;

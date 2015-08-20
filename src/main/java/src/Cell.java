@@ -1,8 +1,7 @@
+package src;
+
 import Exceptions.InvalidActionException;
 
-/**
- * Created by sfang on 8/19/15.
- */
 public class Cell {
     private boolean isDigged;
     private boolean hasMine;
@@ -57,10 +56,6 @@ public class Cell {
 
     public void clear() {
         isFlag = false;
-    }
-
-    public boolean isDigged() {
-        return isDigged;
     }
 
     public boolean needDig() {

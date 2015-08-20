@@ -1,8 +1,5 @@
-import Exceptions.InvalidInputException;
+package src;
 
-/**
- * Created by sfang on 8/19/15.
- */
 public class Board {
     private Cells cells;
     private int size;

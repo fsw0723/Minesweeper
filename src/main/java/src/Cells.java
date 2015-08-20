@@ -1,3 +1,5 @@
+package src;
+
 public class Cells {
     private Cell[][] cells;
 

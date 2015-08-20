@@ -1,11 +1,9 @@
+package src;
+
 import Exceptions.InvalidInputException;
 
 import java.util.HashMap;
-import java.util.Map;
 
-/**
- * Created by sfang on 8/20/15.
- */
 public class InputParser {
     public HashMap<String, Integer> parseSetup(String s) throws InvalidInputException {
 
@@ -14,7 +12,6 @@ public class InputParser {
         if(size <= 0 || numberOfMines <= 0 || numberOfMines > Math.pow(size, 2)){
             throw new InvalidInputException();
         }
-
 
         return new HashMap<String, Integer>(){
             {

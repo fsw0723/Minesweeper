@@ -1,5 +1,7 @@
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import src.Cell;
+import src.CellGenerator;
 
 /**
  * Created by sfang on 8/19/15.
